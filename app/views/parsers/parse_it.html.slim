@@ -1,0 +1,23 @@
+- if @data_hash.empty?
+  = "Bad or no data"
+- else
+  - @data_hash.each do |key, value|
+    h1 = key.titleize
+    ul
+      - if value.kind_of?(Array)
+        - value.each do |v|
+          - if v.is_a? Hash
+            - v.each do |k, v|
+              - unless v.blank?
+                li
+                  = "#{k.titleize}: "
+                  = v.is_a?(Array) ? array_list(v) : v
+                == "<br />" if v.is_a?(Array)
+
+      / BASIC
+      - if value.kind_of?(Hash)
+        - value.each do |k, v|
+          - unless v.blank?
+            li
+              = "#{k.titleize}: "
+              = basic_info(v)
