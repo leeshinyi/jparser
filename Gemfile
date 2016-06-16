@@ -46,4 +46,5 @@ gem 'slim-rails'
 gem 'simple_form'
 
 gem 'pg', group: :production
+gem 'bootstrap-sass'
 
