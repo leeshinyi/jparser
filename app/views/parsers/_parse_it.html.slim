@@ -3,14 +3,14 @@
 - else
   - @data_hash.each do |key, value|
     h1 = key.titleize
-    ul
+    ul.parent_list
       - if value.kind_of?(Array)
         - value.each do |v|
           - if v.is_a? Hash
             - v.each do |k, v|
               - unless v.blank?
                 li
-                  = "#{k.titleize}: "
+                  strong = "#{k.titleize}: "
                   = v.is_a?(Array) ? array_list(v) : v
                 == "<br />" if v.is_a?(Array)
 
@@ -19,5 +19,5 @@
         - value.each do |k, v|
           - unless v.blank?
             li
-              = "#{k.titleize}: "
+              strong = "#{k.titleize}: "
               = basic_info(v)
